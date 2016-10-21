@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <!-- http://bootsnipp.com/snippets/featured/login-and-register-tabbed-form -->
+
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-cookies.js"></script>
+
+  <script>
+    $(function() {
+
+      $('#login-form-link').click(function(e) {
+        $("#login-form").delay(100).fadeIn(100);
+        $("#register-form").fadeOut(100);
+        $('#register-form-link').removeClass('active');
+        $(this).addClass('active');
+        e.preventDefault();
+      });
+      $('#register-form-link').click(function(e) {
+        $("#register-form").delay(100).fadeIn(100);
+        $("#login-form").fadeOut(100);
+        $('#login-form-link').removeClass('active');
+        $(this).addClass('active');
+        e.preventDefault();
+      });
+
+    });
+  </script>
+</head>
+<body ng-app="ChatApp">
+<div class="container" ng-controller="MainController">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <div class="panel panel-login">
+        <div class="panel-heading">
+          <div class="row">
+            <div class="col-xs-6">
+              <a href="#" class="active" id="login-form-link">Login</a>
+            </div>
+            <div class="col-xs-6">
+              <a href="#" id="register-form-link">Register</a>
+            </div>
+          </div>
+          <hr>
+        </div>
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-lg-12">
+              <form id="login-form" role="form" style="display: block;">
+                <div class="form-group">
+                  <input type="text" ng-model="authUsr" tabindex="1" class="form-control" placeholder="Username" value="">
+                </div>
+                <div class="form-group">
+                  <input type="password" ng-model="authPwd" tabindex="2" class="form-control" placeholder="Password">
+                </div>
+                <div class="form-group">
+                  <div class="row">
+                    <div class="col-sm-6 col-sm-offset-3">
+                      <input type="submit" ng-click="signIn()" tabindex="4" class="form-control btn btn-login" value="Log In">
+                    </div>
+                  </div>
+                </div>
+              </form>
+              <form id="register-form" role="form" style="display: none;">
+                <div class="form-group">
+                  <input type="text" ng-model="user" tabindex="1" class="form-control" placeholder="Username" value="">
+                </div>
+                <div class="form-group">
+                  <input type="password" ng-model="pwd" tabindex="2" class="form-control" placeholder="Password">
+                </div>
+                <div class="form-group">
+                  <input type="password" ng-model="confirmPwd" tabindex="2" class="form-control" placeholder="Confirm Password">
+                </div>
+                <div class="form-group">
+                  <div class="row">
+                    <div class="col-sm-6 col-sm-offset-3">
+                      <input type="submit" tabindex="4" class="form-control btn btn-register" value="Register Now">
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="js/app.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
